@@ -55,9 +55,18 @@ Each request can be recorded with an associated "stage". The known stages are:
 -->
 각 요청은 관련된 "단계(stage)"에 따라 기록될 수 있다. 다음과 같은 단계들이 있다.
 
+<!--
 - `RequestReceived` - The stage for events generated as soon as the audit
   handler receives the request, and before it is delegated down the handler
   chain.
+- `ResponseStarted` - Once the response headers are sent, but before the
+  response body is sent. This stage is only generated for long-running requests
+  (e.g. watch).
+- `ResponseComplete` - The response body has been completed and no more bytes
+  will be sent.
+- `Panic` - Events generated when a panic occurred.
+-->
+- `RequestReceived` - 감사 핸들러가 요청을 받아서 막 생성된 이벤트에 대한 단계, 핸들러 체인에 맡기기 전
 - `ResponseStarted` - Once the response headers are sent, but before the
   response body is sent. This stage is only generated for long-running requests
   (e.g. watch).
