@@ -38,12 +38,17 @@ answer the following questions:
 
 
 {{% capture body %}}
-
+<!--
 [Kube-apiserver][kube-apiserver] performs auditing. Each request on each stage
 of its execution generates an event, which is then pre-processed according to
 a certain policy and written to a backend. The policy determines what's recorded
 and the backends persist the records. The current backend implementations
 include logs files and webhooks.
+-->
+[Kube-apiserver][kube-apiserver]는 감사를 수행한다.
+개별 요청은 처리 각 단계에서 이벤트를 생성하며, 특정 정책에 따라 전처리되어 백엔드에 기록된다. 
+정책은 무엇을 기록할지와 그 기록을 보관할 백엔드를 결정한다.
+현재 백엔드 구현체는 로그 파일과 웹훅을 포함한다.
 
 Each request can be recorded with an associated "stage". The known stages are:
 
