@@ -17,6 +17,7 @@ answer the following questions:
 -->
 쿠버네티스 감사(auditing)는 개별 사용자, 관리자, 시스템 내의 다른 컴포넌트들이 시스템에 영향을 줄 수 있는 일련의 활동들을 기록하여 시점별 보안 관련 이력들을 제공한다. 그렇게 함으로써 클러스터 관리자가 다음 질문들에 답할 수 있도록 해준다:
 
+<!--
  - what happened?
  - when did it happen?
  - who initiated it?
@@ -24,6 +25,14 @@ answer the following questions:
  - where was it observed?
  - from where was it initiated?
  - to where was it going?
+-->
+ - 무슨 일인가?
+ - 언제 그랬나?
+ - 누가 그랬나?
+ - 어떻게 일어났나?
+ - 어디서 목격되었나?
+ - 어디서부터 발단이 되었는가?
+ - 어디에 영향을 주었는가?
 
 {{% /capture %}}
 
