@@ -53,7 +53,7 @@ include logs files and webhooks.
 <!--
 Each request can be recorded with an associated "stage". The known stages are:
 -->
-각 요청은 관련된 "단계(stage)"에 따라 기록될 수 있다. 알려진 단계들은 다음과 같다.
+각 요청은 관련된 "단계(stage)"에 따라 기록될 수 있다. 다음과 같은 단계들이 있다.
 
 - `RequestReceived` - The stage for events generated as soon as the audit
   handler receives the request, and before it is delegated down the handler
