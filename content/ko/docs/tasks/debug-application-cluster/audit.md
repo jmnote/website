@@ -36,7 +36,6 @@ answer the following questions:
 
 {{% /capture %}}
 
-
 {{% capture body %}}
 <!--
 [Kube-apiserver][kube-apiserver] performs auditing. Each request on each stage
@@ -80,7 +79,7 @@ because some context required for auditing is stored for each request.
 Additionally, memory consumption depends on the audit logging configuration.
 {{< /note >}}
 
-## Audit Policy
+## 감사 정책
 
 Audit policy defines rules about what events should be recorded and what data
 they should include. The audit policy object structure is defined in the
@@ -117,7 +116,7 @@ rules:
 
 The audit profile used by GCE should be used as reference by admins constructing their own audit profiles. You can check the [configure-helper.sh][configure-helper] script, which generates the audit policy file. You can see most of the audit policy file by looking directly at the script.
 
-## Audit backends
+## 감사 백엔드
 
 Audit backends persist audit events to an external storage.
 [Kube-apiserver][kube-apiserver] out of the box provides three backends:
@@ -161,7 +160,7 @@ log audit backend using the following [kube-apiserver][kube-apiserver] flags:
 - `--audit-log-maxbackup` defines the maximum number of audit log files to retain
 - `--audit-log-maxsize` defines the maximum size in megabytes of the audit log file before it gets rotated
 
-### Webhook backend
+### 웹훅 백엔드
 
 Webhook backend sends audit events to a remote API, which is assumed to be the
 same API as [kube-apiserver][kube-apiserver] exposes. You can configure webhook
@@ -201,7 +200,7 @@ The following flags are used only in the `batch` mode.
 - `--audit-webhook-batch-throttle-burst` defines the maximum number of batches generated at the same
   moment if the allowed QPS was underutilized previously.
 
-#### Parameter tuning
+#### 파라미터 튜닝
 
 Parameters should be set to accommodate the load on the apiserver.
 
@@ -231,7 +230,7 @@ available for the log backend:
 
 By default truncate is disabled in both `webhook` and `log`, a cluster administrator should set `audit-log-truncate-enabled` or `audit-webhook-truncate-enabled` to enable the feature.
 
-### Dynamic backend
+### 동적 백엔드
 
 {{< feature-state for_k8s_version="v1.13" state="alpha" >}}
 
@@ -534,8 +533,8 @@ plugin which supports full-text search and analytics.
 
 {{% capture whatsnext %}}
 
-Visit [Auditing with Falco](/docs/tasks/debug-application-cluster/falco).
+[팔코(Falco)로 감사(auditing)하기](/docs/tasks/debug-application-cluster/falco)를 참고하라.
 
-Learn about [Mutating webhook auditing annotations](/docs/reference/access-authn-authz/extensible-admission-controllers/#mutating-webhook-auditing-annotations).
+[웹훅 감사 애너테이션 변형하기](/docs/reference/access-authn-authz/extensible-admission-controllers/#mutating-webhook-auditing-annotations)를 살펴보라.
 
 {{% /capture %}}
