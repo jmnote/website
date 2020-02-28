@@ -65,18 +65,18 @@ Each request can be recorded with an associated "stage". The known stages are:
   will be sent.
 - `Panic` - Events generated when a panic occurred.
 -->
-- `RequestReceived` - 감사 핸들러가 요청을 받아서 막 생성된 이벤트에 대한 단계, 핸들러 체인에 맡기기 전
-- `ResponseStarted` - Once the response headers are sent, but before the
-  response body is sent. This stage is only generated for long-running requests
-  (e.g. watch).
-- `ResponseComplete` - The response body has been completed and no more bytes
-  will be sent.
-- `Panic` - Events generated when a panic occurred.
+- `RequestReceived` - 감사 핸들러가 요청을 받고, 아직 핸들러 체인에 맡기기 전의, 막 생성된 이벤트 단계
+- `ResponseStarted` - 응답헤더는 보냈고 응답본문은 보내기 전. 이 단계는 장기간 요청(예: watch)에 대해서만 발생한다.
+- `ResponseComplete` - 응답본문이 완료되었고 더 이상 보낼 바이트가 없다.
+- `Panic` - 패닉이 발생할 때 생성되는 이벤트
 
 {{< note >}}
+<!--
 The audit logging feature increases the memory consumption of the API server
 because some context required for auditing is stored for each request.
 Additionally, memory consumption depends on the audit logging configuration.
+-->
+감사 로깅 기능은 API 서버의 메모리 사용량을 증가시키는데, 각 요청에 대해 감사에 필요한 컨텍스트들이 저장되기 때문이다. 메모리 사용량은 감사 로깅 설정에 따라 달라진다.
 {{< /note >}}
 
 ## 감사 정책
@@ -266,7 +266,7 @@ For the complete API definition, see [AuditSink](/docs/reference/generated/kuber
 
 Existing static backends that you configure with runtime flags are not affected by this feature. However, the dynamic backends share the truncate options of the static webhook. If webhook truncate options are set with runtime flags, they are applied to all dynamic backends.
 
-#### Policy
+#### 정책
 
 The AuditSink policy differs from the legacy audit runtime policy. This is because the API object serves different use cases. The policy will continue to evolve to serve more use cases.
 
