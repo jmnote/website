@@ -81,13 +81,25 @@ Additionally, memory consumption depends on the audit logging configuration.
 
 ## 감사 정책
 
+<!--
 Audit policy defines rules about what events should be recorded and what data
 they should include. The audit policy object structure is defined in the
 [`audit.k8s.io` API group][auditing-api]. When an event is processed, it's
 compared against the list of rules in order. The first matching rule sets the
 "audit level" of the event. The known audit levels are:
+-->
+감사 정책은 어떤 이벤트를 기록해야 하고 어떤 데이터를 포함해야 할지에 대한 규칙들을 정의한다. 감사 정책 객체 구조는 [`audit.k8s.io` API 그룹][auditing-api] 내에서 정의된다. 하나의 이벤트가 처리될 때는, 규칙 목록에 맞춰 순차적으로 비교된다. 처음으로 매칭되는 규칙이 그 이벤트의 "감사 레벨"을 결정한다. 알려진 감사 레벨들은 다음과 같다.
 
+<!--
 - `None` - don't log events that match this rule.
+- `Metadata` - log request metadata (requesting user, timestamp, resource,
+  verb, etc.) but not request or response body.
+- `Request` - log event metadata and request body but not response body.
+  This does not apply for non-resource requests.
+- `RequestResponse` - log event metadata, request and response bodies.
+  This does not apply for non-resource requests.
+-->
+- `None` - 이 규칙에 매칭되는 이벤트를 기록하지 않는다.
 - `Metadata` - log request metadata (requesting user, timestamp, resource,
   verb, etc.) but not request or response body.
 - `Request` - log event metadata and request body but not response body.
